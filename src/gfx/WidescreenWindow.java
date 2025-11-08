@@ -46,5 +46,17 @@ public class WidescreenWindow extends Canvas implements Window {
     public Graphics2D getGraphics() {
         return graphics2D;
     }
+
+    @Override
+    public int getWidth()
+    {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight()
+    {
+        return HEIGHT;
+    }
     
 }

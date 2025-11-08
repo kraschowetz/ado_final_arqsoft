@@ -47,4 +47,15 @@ public class MobileWindow extends Canvas implements Window {
         return graphics2D;
     }
     
+    @Override
+    public int getWidth()
+    {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight()
+    {
+        return HEIGHT;
+    }
 }
