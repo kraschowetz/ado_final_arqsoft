@@ -1,9 +1,16 @@
 import core.Engine;
+import gfx.WindowType;
 
 public class Main {
     public static void main(String[] args) {
         Engine.init();
-
-        Engine.get().start();
+        
+        try {
+            Engine.get().start(WindowType.DESKTOP_WINDOW);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }

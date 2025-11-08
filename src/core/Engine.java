@@ -1,5 +1,8 @@
 package core;
 
+import gfx.Window;
+import gfx.WindowType;
+
 public class Engine implements Runnable {
     
     
@@ -8,6 +11,8 @@ public class Engine implements Runnable {
     private float m_DeltaTime = 0;
     private long m_LastTimeMS = 0;
     private boolean m_Running = false;
+
+    private Window m_Window;
     private Thread thread;
 
     private Engine() {
@@ -19,11 +24,13 @@ public class Engine implements Runnable {
         s_Singleton = new Engine();
     }
 
-    public void start() {
+    public void start(WindowType windowType) throws InstantiationException {
+        m_Running = true;
+        m_Window = Window.create(windowType);
+        m_Window.init();
+
         thread = new Thread(this);
         thread.start();
-
-        m_Running = true;
     }
 
     public static Engine get()
