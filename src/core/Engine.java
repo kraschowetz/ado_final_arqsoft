@@ -1,5 +1,6 @@
 package core;
 
+import gfx.Renderer;
 import gfx.Window;
 import gfx.WindowType;
 
@@ -28,6 +29,7 @@ public class Engine implements Runnable {
         m_Running = true;
         m_Window = Window.create(windowType);
         m_Window.init();
+        Renderer.init(m_Window);
 
         thread = new Thread(this);
         thread.start();
@@ -46,7 +48,9 @@ public class Engine implements Runnable {
 
     public void render()
     {
+        Renderer.get().clear();
 
+        m_Window.display();
     }
 
     public float getDeltaTime()
@@ -69,6 +73,7 @@ public class Engine implements Runnable {
             float delta = deltaMS / MILLIS_IN_SECOND;
 
             update(delta);
+            render();
 
             m_LastTimeMS = currentTime;
         }
