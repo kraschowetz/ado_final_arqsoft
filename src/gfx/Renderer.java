@@ -3,6 +3,9 @@ package gfx;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import entity.Enemy;
+import entity.Player;
+
 public class Renderer {
     
     private static  Renderer s_Singleton;
@@ -30,6 +33,18 @@ public class Renderer {
     public void clear()
     {
         m_Graphics.setColor(Color.BLACK);
-        m_Graphics.fillRect(0, 0, m_WindowWidth, m_WindowHeight);
+        m_Graphics.clearRect(0, 0, m_WindowWidth, m_WindowHeight);
+    }
+
+    public void drawPlayer(Player player)
+    {
+        m_Graphics.setColor(Color.BLUE);
+        m_Graphics.fillRect(player.getXPosition(), player.getYPosition(), 32, 32);
+    }
+
+    public void drawEnemy(Enemy enemy)
+    {
+        m_Graphics.setColor(Color.RED);
+        m_Graphics.fillRect(enemy.getXPosition(), enemy.getYPosition(), 32, 32);
     }
 }

@@ -13,11 +13,11 @@ public class DesktopWindow extends Canvas implements Window {
     private static final int NUM_BUFFERS = 2;
     private static final String TITLE = "Janela Desktop!";
 
-    private Graphics2D graphics2D = null;
+    private Graphics2D m_Graphics2D = null;
 
     @Override
     public void display() {
-        getBufferStrategy().show();
+        this.getBufferStrategy().show();
     }
 
     @Override
@@ -36,15 +36,13 @@ public class DesktopWindow extends Canvas implements Window {
         frame.requestFocus();
         frame.pack();
 
-        if(getBufferStrategy() == null) {
-            createBufferStrategy(NUM_BUFFERS);
-        }
-        graphics2D = (Graphics2D)(getBufferStrategy().getDrawGraphics());
+        createBufferStrategy(NUM_BUFFERS);
+        m_Graphics2D = (Graphics2D)(getBufferStrategy().getDrawGraphics());
     }
 
     @Override
     public Graphics2D getGraphics() {
-        return graphics2D;
+        return m_Graphics2D;
     }
     
     @Override

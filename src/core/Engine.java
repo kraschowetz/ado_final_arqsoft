@@ -1,5 +1,10 @@
 package core;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
+import entity.Enemy;
+import entity.Player;
 import gfx.Renderer;
 import gfx.Window;
 import gfx.WindowType;
@@ -14,7 +19,10 @@ public class Engine implements Runnable {
     private boolean m_Running = false;
 
     private Window m_Window;
-    private Thread thread;
+    private Thread m_Thread;
+
+    Player m_Player;
+    ArrayList<Enemy> m_Enemies;
 
     private Engine() {
         
@@ -31,8 +39,12 @@ public class Engine implements Runnable {
         m_Window.init();
         Renderer.init(m_Window);
 
-        thread = new Thread(this);
-        thread.start();
+        m_Player = new Player();
+        m_Enemies = new ArrayList<>();
+        m_Enemies.add(new Enemy());
+
+        m_Thread = new Thread(this);
+        m_Thread.start();
     }
 
     public static Engine get()
@@ -43,12 +55,23 @@ public class Engine implements Runnable {
     public void update(float delta)
     {
         m_DeltaTime = delta;
-        System.out.println(delta);
+
+        /*
+        m_Player.update();
+        for(Enemy e : m_Enemies)
+        {
+            e.update();
+        }
+        */
+
+        // System.out.println(delta);
     }
 
     public void render()
     {
         Renderer.get().clear();
+
+        m_Player.render();
 
         m_Window.display();
     }
@@ -67,7 +90,7 @@ public class Engine implements Runnable {
     public void run() {
         final float MILLIS_IN_SECOND = 1000.f;
 
-            while(m_Running) {
+        while(m_Running) {
             long currentTime = System.currentTimeMillis();
             long deltaMS = currentTime - m_LastTimeMS;
             float delta = deltaMS / MILLIS_IN_SECOND;

@@ -24,7 +24,6 @@ public interface Window {
     public void display();
     public void init();
     public Graphics2D getGraphics();
-    public void requestFocus();
     public int getWidth();
     public int getHeight();
 
