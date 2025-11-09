@@ -12,5 +12,7 @@ public class Main {
         {
             e.printStackTrace();
         }
+
+        int a = 0;
     }
 }

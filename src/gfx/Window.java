@@ -17,7 +17,7 @@ public interface Window {
                     return new MobileWindow();
 
             default:
-                throw new InstantiationException("Unknown Canvas Type!");
+                throw new InstantiationException("Unknown Window Type!");
         }
     }
 

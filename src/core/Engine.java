@@ -1,6 +1,5 @@
 package core;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import entity.Enemy;
@@ -10,7 +9,6 @@ import gfx.Window;
 import gfx.WindowType;
 
 public class Engine implements Runnable {
-    
     
     private static Engine s_Singleton;
 
@@ -56,22 +54,23 @@ public class Engine implements Runnable {
     {
         m_DeltaTime = delta;
 
-        /*
         m_Player.update();
         for(Enemy e : m_Enemies)
         {
             e.update();
         }
-        */
-
-        // System.out.println(delta);
     }
 
     public void render()
     {
         Renderer.get().clear();
 
-        m_Player.render();
+        // m_Player.render();
+
+        // for(Enemy e : m_Enemies)
+        // {
+        //     e.render();
+        // }
 
         m_Window.display();
     }
@@ -90,7 +89,7 @@ public class Engine implements Runnable {
     public void run() {
         final float MILLIS_IN_SECOND = 1000.f;
 
-        while(m_Running) {
+         while(m_Running == true) {
             long currentTime = System.currentTimeMillis();
             long deltaMS = currentTime - m_LastTimeMS;
             float delta = deltaMS / MILLIS_IN_SECOND;

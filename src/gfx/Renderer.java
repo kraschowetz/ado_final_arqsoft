@@ -8,7 +8,7 @@ import entity.Player;
 
 public class Renderer {
     
-    private static  Renderer s_Singleton;
+    private static Renderer s_Singleton;
 
     private Graphics2D m_Graphics = null;
     private int m_WindowWidth = 0;
@@ -33,7 +33,7 @@ public class Renderer {
     public void clear()
     {
         m_Graphics.setColor(Color.BLACK);
-        m_Graphics.clearRect(0, 0, m_WindowWidth, m_WindowHeight);
+        m_Graphics.fillRect(0, 0, m_WindowWidth, m_WindowHeight);
     }
 
     public void drawPlayer(Player player)
