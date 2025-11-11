@@ -3,6 +3,7 @@ import gfx.WindowType;
 
 public class Main {
     public static void main(String[] args) {
+
         Engine.init();
         
         try {
@@ -12,7 +13,5 @@ public class Main {
         {
             e.printStackTrace();
         }
-
-        int a = 0;
     }
 }

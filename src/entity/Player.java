@@ -6,6 +6,7 @@ public class Player extends Entity {
 
     @Override
     public void update() {
+        m_Position[0] = 128;
     }
 
     @Override
