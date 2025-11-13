@@ -1,6 +1,5 @@
 package core;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import entity.Enemy;
@@ -56,7 +55,7 @@ public class Engine implements Runnable {
 
     // atualiza a lógica dos components jogo
     // recebe delta: tempo que se passou desde o ultimo update(), em segundos
-    public void update(float delta) {
+    private void update(float delta) {
         m_DeltaTime = delta;
 
         m_Player.update();
@@ -67,7 +66,7 @@ public class Engine implements Runnable {
     }
 
     // desenha os componentes do jogo na tela
-    public void render() {
+    private void render() {
         // limpa a tela do jogo
         Renderer.get().clear();
 
